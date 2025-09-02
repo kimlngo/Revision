@@ -14,7 +14,8 @@ public class EqualHashCode {
         System.out.println("Before sorting: " + stdList);
 
         List<Student> sortedAlphabet = stdList.stream()
-                                              .sorted(Comparator.comparing(Student::getName).reversed())
+                                              .sorted(Comparator.comparing(Student::getName)
+                                                                .reversed())
                                               .toList();
         System.out.println("After sorting: " + sortedAlphabet);
 
@@ -45,6 +46,18 @@ class Student {
     public void setName(String name) {
         this.name = name;
     }
+
+//    @Override
+//    public boolean equals(Object o) {
+//        if (o == null || getClass() != o.getClass()) return false;
+//        Student student = (Student) o;
+//        return Objects.equals(id, student.id) && Objects.equals(name, student.name);
+//    }
+//
+//    @Override
+//    public int hashCode() {
+//        return Objects.hash(id, name);
+//    }
 
     @Override
     public int hashCode() {
